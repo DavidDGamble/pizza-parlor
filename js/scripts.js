@@ -118,6 +118,6 @@ function handleClear(event) {
 
 window.addEventListener('load', function() {
   order = new Order();
-  document.getElementById('form').addEventListener('submit', handleSubmit);
+  document.getElementById('submit').addEventListener('submit', handleSubmit);
   document.getElementById('clear').addEventListener('click', handleClear);
 });
