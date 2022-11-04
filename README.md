@@ -37,28 +37,28 @@ _The above copyright notice and this permission notice shall be included in all 
 _THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
 
 ```
-Describe: Order()
+Describe: Pizza()
 
 Test: Should create an object that contains all of the customers order details.
-Code: new Order('large', true, true, false, false, false)
+Code: new Pizza('large', true, true, false, false, false)
 Expected Outcome: order {
   size: large
-  pep: true
-  saus: true
-  mush: false
-  blkOlv: false
-  xtraChz: false
+  pepperoni: true
+  sausage: true
+  mushroom: false
+  blackOlive: false
+  xtraCheese: false
 }
 
-Describe: Order.prototype.calulate()
+Describe: Pizza.prototype.calulate()
 
 Test: Should calculate the total price for the order in the order object.
-Code: test = new Order('lg', true, true, false, false, false)
+Code: test = new Pizza('lg', true, true, false, false, false)
 test.calculate() 
 Expected Output: 14
 
 Test: Should calculate the total price for the order in the order object when a price value === 0.5.
-Code: test = new Order('lg', true, true, true, false, false)
+Code: test = new Pizza('lg', true, true, true, false, false)
 test.calculate() 
 Expected Output: 14.5
 
@@ -71,4 +71,27 @@ Expected Output: '$14.50'
 Test: Should convert price total to readable price display when price total has no decimal.
 Code: convert(14)
 Expected Output: '$14.00'
+
+Describe: Order.prototype.addPizza()
+
+Test: Should add a new order to an order object and assign it with the current order number.
+Code: let testOrder = new Order();
+let testPizza = new Pizza('lg', true, true, true, false, false);
+testOrder.addPizza(testPizza);
+console.log(testOrder);
+Expected Output: Order {
+  total: 0
+  orders: {
+    1: pizza {
+      size: 'lg'
+      pepperoni: true
+      sausage: true
+      mushroom: true
+      blackOlives: false
+      xtraCheese: false
+      id: 1
+    }
+  }
+  total: 0
+}
 ```

@@ -1,5 +1,5 @@
 // Business Logic -------------------------------------------------------------
-total = 0;
+// total = 0;
 
 const prices = {
   small: 8,
@@ -13,6 +13,12 @@ const prices = {
   xtraCheese: 1
 }
 
+function Order() {
+  this.total = 0
+  this.orders = {};
+  this.currentOrder = 0;
+}
+
 function Pizza(size, pep, saus, mush, blkOlv, xtraChz) {
   this.size = size;
   this.pepperoni = pep;
@@ -20,6 +26,16 @@ function Pizza(size, pep, saus, mush, blkOlv, xtraChz) {
   this.mushroom = mush;
   this.blackOlives = blkOlv;
   this.xtraCheese = xtraChz
+}
+
+Order.prototype.assignOrder = function() {
+  this.currentOrder++;
+  return this.currentOrder;
+}
+
+Order.prototype.addPizza = function(pizza) {
+  pizza.id = this.assignOrder();
+  this.orders[pizza.id] = pizza;
 }
 
 Pizza.prototype.calculate = function() {
@@ -46,7 +62,6 @@ function convert(price) {
   }
   return newPrice
 }
-
 // UI Logic -------------------------------------------------------------
 
 
@@ -62,7 +77,7 @@ function handleSubmit(event) {
 
   const newPizza = new Pizza(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
   const newPrice = newPizza.calculate();
-  total += newPrice;
+  order.total += newPrice;
   let divDisplay = document.getElementById('display');
   if (divDisplay === null) {
     let newDiv = document.createElement('div');
@@ -83,23 +98,26 @@ function handleSubmit(event) {
       p.innerHTML = key;
     }
   }
-  document.getElementById('price').innerHTML = 'Total: ' + convert(total);
+  document.getElementById('price').innerHTML = 'Total: ' + convert(order.total);
   document.getElementById('size').value = 'small';
   document.getElementById('pepperoni').checked = false;
   document.getElementById('sausage').checked = false;
   document.getElementById('mushroom').checked = false;
   document.getElementById('blk-olives').checked = false;
   document.getElementById('xtra-cheese').checked = false;
+  order.addPizza(newPizza);
+  console.log(order);
 }
 
 function handleClear(event) {
   event.preventDefault();
 
-  total = 0;
+  order = new Order();
   document.getElementById('display').remove('div');
 } 
 
 window.addEventListener('load', function() {
+  order = new Order();
   document.getElementById('form').addEventListener('submit', handleSubmit);
   document.getElementById('clear').addEventListener('click', handleClear);
 });
