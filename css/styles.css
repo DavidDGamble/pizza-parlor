@@ -1,0 +1,33 @@
+body {
+  background-image: url(../img/pizza-background.jpeg);
+}
+
+
+#form {
+  width: auto;
+  height: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border: solid black;
+  border-width: 10px;
+  background-color: rgb(31, 159, 89);
+  text-align: center;
+  margin-bottom: 3%;
+  box-sizing: border-box;
+}
+
+#display {
+  width: auto;
+  height: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 2%;
+  box-sizing: border-box;
+}
+
+#submit {
+  margin-top: 5%;
+}

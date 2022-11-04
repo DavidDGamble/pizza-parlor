@@ -9,42 +9,37 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>The Za Zone</h1>
-
-<!-- Dropdown for sizes -->
+  <div class="container" id="main">
+    <div class="row">
+      <h1>The Za Zone</h1>
+    </div>
     <form id="form">
+      <!-- Dropdown for sizes -->
       <label for="size">Choose pizza size:</label>
       <select name="size" id="size">
-        <option value="sm">Small</option>
-        <option value="md">Medium</option>
-        <option value="lg">Large</option>
-        <option value="xlg">Extra Large</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="xtraLarge">Extra Large</option>
       </select>
       <br>
-<!-- Check boxes for topping -->
-    
+      <!-- Check boxes for topping -->
       <input type="checkbox" id="pepperoni" name="pepperoni" value="true">
       <label for="pepperoni">Pepperoni</label><br>
-      
       <input type="checkbox" id="sausage" name="sausage" value="true">
       <label for="sausage">Sausage</label><br>
-      
       <input type="checkbox" id="mushroom" name="mushroom" value="true">
       <label for="mushroom">Mushrooms</label><br>
-
       <input type="checkbox" id="blk-olives" name="blk-olives" value="true">
       <label for="blk-olives">Black Olives</label><br>
-
       <input type="checkbox" id="xtra-cheese" name="xtra-cheese" value="true">
       <label for="xtra-cheese">Extra Cheese</label><br>
-      
-      <!-- <input id="submit" type="submit" value="Submit"> -->
-    
-
+      <!-- Submit buttom -->
       <button id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <h2 id="display"></h2>
+    <div class="mx-auto text-center">
+      <button id="clear" type="click" class="btn btn-danger">Clear Order</button>
+    </div>
   </div>
 </body>
 

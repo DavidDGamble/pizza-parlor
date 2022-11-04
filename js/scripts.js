@@ -1,23 +1,25 @@
 // Business Logic -------------------------------------------------------------
+total = 0;
+
 const prices = {
-  sm: 8,
-  md: 10,
-  lg: 12,
-  xlg: 15,
-  pep: 1,
-  saus: 1,
-  mush: 0.5,
-  blkOlv: 0.5,
-  xtraChz: 1
+  small: 8,
+  medium: 10,
+  large: 12,
+  xtraLarge: 15,
+  pepperoni: 1,
+  sausage: 1,
+  mushroom: 0.5,
+  blackOlives: 0.5,
+  xtraCheese: 1
 }
 
 function Order(size, pep, saus, mush, blkOlv, xtraChz) {
   this.size = size;
-  this.pep = pep;
-  this.saus = saus;
-  this.mush = mush;
-  this.blkOlv = blkOlv;
-  this.xtraChz = xtraChz
+  this.pepperoni = pep;
+  this.sausage = saus;
+  this.mushroom = mush;
+  this.blackOlives = blkOlv;
+  this.xtraCheese = xtraChz
 }
 
 Order.prototype.calculate = function() {
@@ -51,7 +53,6 @@ function convert(price) {
 
 function handleSubmit(event) {
   event.preventDefault();
-
   const sizeInput = document.getElementById('size').value;
   const pepInput = document.getElementById('pepperoni').checked;
   const sausInput = document.getElementById('sausage').checked;
@@ -60,10 +61,39 @@ function handleSubmit(event) {
   const xtraChzInput = document.getElementById('xtra-cheese').checked;
 
   const newOrder = new Order(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
-  const price = newOrder.calculate();
-  document.getElementById('display').innerHTML = convert(price);
+  const newPrice = newOrder.calculate();
+  total += newPrice;
+  let divDisplay = document.getElementById('display');
+  if (divDisplay === null) {
+    let newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'display');
+    let newH2 = document.createElement('h2');
+    newH2.setAttribute('id', 'price');
+    document.getElementById('main').append(newDiv);
+    document.getElementById('display').append(newH2);
+  }
+  for (let key in newOrder) {
+    if (key === 'size') {
+      let h3 = document.createElement('h3')
+      h3.innerHTML = newOrder[key] + ' pie';
+      document.getElementById('display').append(h3);
+    } else if (newOrder[key] === true) {
+      let p = document.createElement('p');
+      document.getElementById('display').append(p);
+      p.innerHTML = key;
+    }
+  }
+  document.getElementById('price').innerHTML = 'Total: ' + convert(total);
 }
+
+function handleClear(event) {
+  event.preventDefault();
+
+  total = 0;
+  document.getElementById('display').remove('div');
+} 
 
 window.addEventListener('load', function() {
   document.getElementById('form').addEventListener('submit', handleSubmit);
+  document.getElementById('clear').addEventListener('click', handleClear);
 });
