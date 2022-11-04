@@ -22,3 +22,14 @@ Test: Should calculate the total price for the order in the order object when a 
 Code: test = new Order('lg', true, true, true, false, false)
 test.calculate() 
 Expected Output: 14.5
+
+Describe: convert()
+
+Test: Should convert price total to readable price display when price total has 1 tenths value.
+Code: convert(14.5)
+Expected Output: '$14.50'
+
+Test: Should convert price total to readable price display when price total has no decimal.
+Code: convert(14)
+Expected Output: '$14.00'
+

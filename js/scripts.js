@@ -34,4 +34,37 @@ Order.prototype.calculate = function() {
   return priceTotal;
 };
 
+function convert(price) {
+  let newPrice = price.toString();
+  newPrice = '$' + newPrice;
+  if (newPrice[newPrice.length - 2] === '.') {
+    newPrice += '0'; 
+  } else {
+    newPrice += '.00';
+  }
+  return newPrice
+}
+
+console.log(convert(14));
+
 // UI Logic -------------------------------------------------------------
+
+
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const sizeInput = document.getElementById('size').value;
+  const pepInput = document.getElementById('pepperoni').checked;
+  const sausInput = document.getElementById('sausage').checked;
+  const mushInput = document.getElementById('mushroom').checked;
+  const blkOlvInput = document.getElementById('blk-olives').checked;
+  const xtraChzInput = document.getElementById('xtra-cheese').checked;
+
+  const order = new Order(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
+  // document.getElementById('display').innerHTML = 
+}
+
+window.addEventListener('load', function() {
+  document.getElementById('form').addEventListener('submit', handleSubmit);
+});

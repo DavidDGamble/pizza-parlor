@@ -13,33 +13,38 @@
     <h1>The Za Zone</h1>
 
 <!-- Dropdown for sizes -->
-    <label for="size">Choose pizza size:</label>
-    <select name="size" id="size">
-      <option value="small">Small</option>
-      <option value="medium">Medium</option>
-      <option value="large">Large</option>
-      <option value="xtr-large">Extra Large</option>
-    </select>
+    <form id="form">
+      <label for="size">Choose pizza size:</label>
+      <select name="size" id="size">
+        <option value="sm">Small</option>
+        <option value="md">Medium</option>
+        <option value="lg">Large</option>
+        <option value="xlg">Extra Large</option>
+      </select>
+      <br>
 <!-- Check boxes for topping -->
-    <form>
-      <input type="checkbox" id="pepperoni" name="pepperoni" value="pepperoni">
+    
+      <input type="checkbox" id="pepperoni" name="pepperoni" value="true">
       <label for="pepperoni">Pepperoni</label><br>
       
-      <input type="checkbox" id="sausage" name="sausage" value="sausage">
+      <input type="checkbox" id="sausage" name="sausage" value="true">
       <label for="sausage">Sausage</label><br>
       
-      <input type="checkbox" id="mushroom" name="mushroom" value="mushroom">
+      <input type="checkbox" id="mushroom" name="mushroom" value="true">
       <label for="mushroom">Mushrooms</label><br>
 
-      <input type="checkbox" id="blk-olives" name="blk-olives" value="blk-olives">
+      <input type="checkbox" id="blk-olives" name="blk-olives" value="true">
       <label for="blk-olives">Black Olives</label><br>
 
-      <input type="checkbox" id="xta-cheese" name="xta-cheese" value="xta-cheese">
-      <label for="xta-cheese">Extra Cheese</label><br>
+      <input type="checkbox" id="xtra-cheese" name="xtra-cheese" value="true">
+      <label for="xtra-cheese">Extra Cheese</label><br>
       
-      <input type="submit" value="Submit">
-    </form>
+      <!-- <input id="submit" type="submit" value="Submit"> -->
+    
 
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <h2 id="display"></h2>
   </div>
 </body>
 
