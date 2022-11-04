@@ -12,7 +12,7 @@ const prices = {
 }
 
 function Order() {
-  this.total = 0
+  this.total = 0;
   this.orders = {};
   this.currentOrder = 0;
 }
@@ -23,7 +23,7 @@ function Pizza(size, pep, saus, mush, blkOlv, xtraChz) {
   this.sausage = saus;
   this.mushroom = mush;
   this.blackOlives = blkOlv;
-  this.xtraCheese = xtraChz
+  this.xtraCheese = xtraChz;
 }
 
 Order.prototype.assignOrder = function () {
@@ -58,7 +58,7 @@ function convert(price) {
   } else {
     newPrice += '.00';
   }
-  return newPrice
+  return newPrice;
 }
 
 // UI Logic -------------------------------------------------------------
@@ -84,7 +84,7 @@ function handleSubmit(event) {
   }
   for (let key in newPizza) {
     if (key === 'size') {
-      let h3 = document.createElement('h3')
+      let h3 = document.createElement('h3');
       h3.innerHTML = newPizza[key] + ' pie';
       document.getElementById('display').append(h3);
     } else if (newPizza[key] === true) {
