@@ -45,8 +45,6 @@ function convert(price) {
   return newPrice
 }
 
-console.log(convert(14));
-
 // UI Logic -------------------------------------------------------------
 
 
@@ -61,8 +59,9 @@ function handleSubmit(event) {
   const blkOlvInput = document.getElementById('blk-olives').checked;
   const xtraChzInput = document.getElementById('xtra-cheese').checked;
 
-  const order = new Order(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
-  // document.getElementById('display').innerHTML = 
+  const newOrder = new Order(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
+  const price = newOrder.calculate();
+  document.getElementById('display').innerHTML = convert(price);
 }
 
 window.addEventListener('load', function() {
