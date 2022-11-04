@@ -13,7 +13,7 @@ const prices = {
   xtraCheese: 1
 }
 
-function Order(size, pep, saus, mush, blkOlv, xtraChz) {
+function Pizza(size, pep, saus, mush, blkOlv, xtraChz) {
   this.size = size;
   this.pepperoni = pep;
   this.sausage = saus;
@@ -22,7 +22,7 @@ function Order(size, pep, saus, mush, blkOlv, xtraChz) {
   this.xtraCheese = xtraChz
 }
 
-Order.prototype.calculate = function() {
+Pizza.prototype.calculate = function() {
   let priceTotal = 0;
   for (let key in this) {
     if (key === 'size') {
@@ -60,8 +60,8 @@ function handleSubmit(event) {
   const blkOlvInput = document.getElementById('blk-olives').checked;
   const xtraChzInput = document.getElementById('xtra-cheese').checked;
 
-  const newOrder = new Order(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
-  const newPrice = newOrder.calculate();
+  const newPizza = new Pizza(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
+  const newPrice = newPizza.calculate();
   total += newPrice;
   let divDisplay = document.getElementById('display');
   if (divDisplay === null) {
@@ -72,18 +72,24 @@ function handleSubmit(event) {
     document.getElementById('main').append(newDiv);
     document.getElementById('display').append(newH2);
   }
-  for (let key in newOrder) {
+  for (let key in newPizza) {
     if (key === 'size') {
       let h3 = document.createElement('h3')
-      h3.innerHTML = newOrder[key] + ' pie';
+      h3.innerHTML = newPizza[key] + ' pie';
       document.getElementById('display').append(h3);
-    } else if (newOrder[key] === true) {
+    } else if (newPizza[key] === true) {
       let p = document.createElement('p');
       document.getElementById('display').append(p);
       p.innerHTML = key;
     }
   }
   document.getElementById('price').innerHTML = 'Total: ' + convert(total);
+  document.getElementById('size').value = 'small';
+  document.getElementById('pepperoni').checked = false;
+  document.getElementById('sausage').checked = false;
+  document.getElementById('mushroom').checked = false;
+  document.getElementById('blk-olives').checked = false;
+  document.getElementById('xtra-cheese').checked = false;
 }
 
 function handleClear(event) {
