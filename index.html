@@ -11,32 +11,41 @@
 <body>
   <div class="container" id="main">
     <div class="jumbotron" style="text-align: center">
-    <h1>The Za Zone</h1>
-  </div>  
-    <form id="form">
-      <!-- Dropdown for sizes -->
-      <label for="size">Choose pizza size:</label>
-      <select name="size" id="size">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="xtraLarge">Extra Large</option>
-      </select>
-      <br>
-      <!-- Check boxes for topping -->
-      <input type="checkbox" id="pepperoni" name="pepperoni" value="true">
-      <label for="pepperoni">Pepperoni</label><br>
-      <input type="checkbox" id="sausage" name="sausage" value="true">
-      <label for="sausage">Sausage</label><br>
-      <input type="checkbox" id="mushroom" name="mushroom" value="true">
-      <label for="mushroom">Mushrooms</label><br>
-      <input type="checkbox" id="blk-olives" name="blk-olives" value="true">
-      <label for="blk-olives">Black Olives</label><br>
-      <input type="checkbox" id="xtra-cheese" name="xtra-cheese" value="true">
-      <label for="xtra-cheese">Extra Cheese</label><br>
-      <!-- Submit buttom -->
-      <button id="submit" type="submit" class="btn btn-primary">Add Pie</button>
-    </form>
+      <h1>The Za Zone</h1>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <form id="pizza">
+          <label for="size">Choose pizza size:</label>
+          <select name="size" id="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xtraLarge">Extra Large</option>
+          </select>
+          <br>
+          <input type="checkbox" id="pepperoni" name="pepperoni" value="true">
+          <label for="pepperoni">Pepperoni</label><br>
+          <input type="checkbox" id="sausage" name="sausage" value="true">
+          <label for="sausage">Sausage</label><br>
+          <input type="checkbox" id="mushroom" name="mushroom" value="true">
+          <label for="mushroom">Mushrooms</label><br>
+          <input type="checkbox" id="blk-olives" name="blk-olives" value="true">
+          <label for="blk-olives">Black Olives</label><br>
+          <input type="checkbox" id="xtra-cheese" name="xtra-cheese" value="true">
+          <label for="xtra-cheese">Extra Cheese</label><br>
+          <button id="submit" type="submit" class="btn btn-primary">Add Pie</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <form id="to-go">
+          <label for="address">Address:</label>
+          <br>
+          <input type="text" id="address">
+          <button id="address-button" type="click" class="btn btn-primary">Add Address</button>
+        </form>
+      </div>
+    </div>
     <div class="mx-auto text-center">
       <button id="clear" type="click" class="btn btn-danger">Clear Order</button>
     </div>

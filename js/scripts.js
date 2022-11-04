@@ -1,6 +1,4 @@
 // Business Logic -------------------------------------------------------------
-// total = 0;
-
 const prices = {
   small: 8,
   medium: 10,
@@ -28,17 +26,17 @@ function Pizza(size, pep, saus, mush, blkOlv, xtraChz) {
   this.xtraCheese = xtraChz
 }
 
-Order.prototype.assignOrder = function() {
+Order.prototype.assignOrder = function () {
   this.currentOrder++;
   return this.currentOrder;
 }
 
-Order.prototype.addPizza = function(pizza) {
+Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignOrder();
   this.orders[pizza.id] = pizza;
 }
 
-Pizza.prototype.calculate = function() {
+Pizza.prototype.calculate = function () {
   let priceTotal = 0;
   for (let key in this) {
     if (key === 'size') {
@@ -56,16 +54,14 @@ function convert(price) {
   let newPrice = price.toString();
   newPrice = '$' + newPrice;
   if (newPrice[newPrice.length - 2] === '.') {
-    newPrice += '0'; 
+    newPrice += '0';
   } else {
     newPrice += '.00';
   }
   return newPrice
 }
+
 // UI Logic -------------------------------------------------------------
-
-
-
 function handleSubmit(event) {
   event.preventDefault();
   const sizeInput = document.getElementById('size').value;
@@ -74,7 +70,6 @@ function handleSubmit(event) {
   const mushInput = document.getElementById('mushroom').checked;
   const blkOlvInput = document.getElementById('blk-olives').checked;
   const xtraChzInput = document.getElementById('xtra-cheese').checked;
-
   const newPizza = new Pizza(sizeInput, pepInput, sausInput, mushInput, blkOlvInput, xtraChzInput);
   const newPrice = newPizza.calculate();
   order.total += newPrice;
@@ -106,18 +101,16 @@ function handleSubmit(event) {
   document.getElementById('blk-olives').checked = false;
   document.getElementById('xtra-cheese').checked = false;
   order.addPizza(newPizza);
-  console.log(order);
 }
 
 function handleClear(event) {
   event.preventDefault();
-
   order = new Order();
   document.getElementById('display').remove('div');
-} 
+}
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   order = new Order();
-  document.getElementById('submit').addEventListener('submit', handleSubmit);
+  document.getElementById('pizza').addEventListener('submit', handleSubmit);
   document.getElementById('clear').addEventListener('click', handleClear);
 });
