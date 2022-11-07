@@ -2,6 +2,10 @@ body {
   background-image: url(../img/pizza-background.jpeg);
 }
 
+.hidden {
+  display: none;
+}
+
 #pizza {
   width: auto;
   height: 300px;
@@ -47,4 +51,8 @@ body {
 
 #submit {
   margin-top: 5%;
+}
+
+.place-order {
+  margin-top: 25%;
 }

@@ -35,7 +35,7 @@ Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignOrder();
   this.orders[pizza.id] = pizza;
 }
-
+//-------------------------------------------------------------------------------------------------------------
 Pizza.prototype.calculate = function () {
   let priceTotal = 0;
   for (let key in this) {
@@ -49,7 +49,7 @@ Pizza.prototype.calculate = function () {
   }
   return priceTotal;
 };
-
+//-------------------------------------------------------------------------------------------------------------
 function convert(price) {
   let newPrice = price.toString();
   newPrice = '$' + newPrice;
@@ -82,6 +82,7 @@ function handleSubmit(event) {
     document.getElementById('main').append(newDiv);
     document.getElementById('display').append(newH2);
   }
+//-------------------------------------------------------------------------------------------------------------
   for (let key in newPizza) {
     if (key === 'size') {
       let h3 = document.createElement('h3');
@@ -92,6 +93,7 @@ function handleSubmit(event) {
       document.getElementById('display').append(p);
       p.innerHTML = key;
     }
+//-------------------------------------------------------------------------------------------------------------
   }
   document.getElementById('price').innerHTML = 'Total: ' + convert(order.total);
   document.getElementById('size').value = 'small';
@@ -109,8 +111,19 @@ function handleClear(event) {
   document.getElementById('display').remove('div');
 }
 
+function handlePlaceOrder(event) {
+  event.preventDefault();
+}
+
+function handleAddress(event) {
+  event.preventDefault();
+}
+
 window.addEventListener('load', function () {
   order = new Order();
   document.getElementById('pizza').addEventListener('submit', handleSubmit);
   document.getElementById('clear').addEventListener('click', handleClear);
+
+  document.getElementById('place-order').addEventListener('click', handlePlaceOrder);
+  document.getElementById('address-button').addEventListener('click', handleAddress);
 });

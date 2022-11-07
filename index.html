@@ -18,38 +18,42 @@
         <form id="pizza">
           <label for="size">Choose pizza size:</label>
           <select name="size" id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="xtraLarge">Extra Large</option>
+            <option value="small">Small $8.00</option>
+            <option value="medium">Medium $10.00</option>
+            <option value="large">Large 12.00</option>
+            <option value="xtraLarge">Extra Large $15.00</option>
           </select>
           <br>
           <input type="checkbox" id="pepperoni" name="pepperoni" value="true">
-          <label for="pepperoni">Pepperoni</label><br>
+          <label for="pepperoni">Pepperoni $1.00</label><br>
           <input type="checkbox" id="sausage" name="sausage" value="true">
-          <label for="sausage">Sausage</label><br>
+          <label for="sausage">Sausage $1.00</label><br>
           <input type="checkbox" id="mushroom" name="mushroom" value="true">
-          <label for="mushroom">Mushrooms</label><br>
+          <label for="mushroom">Mushrooms $0.50</label><br>
           <input type="checkbox" id="blk-olives" name="blk-olives" value="true">
-          <label for="blk-olives">Black Olives</label><br>
+          <label for="blk-olives">Black Olives $0.50</label><br>
           <input type="checkbox" id="xtra-cheese" name="xtra-cheese" value="true">
-          <label for="xtra-cheese">Extra Cheese</label><br>
+          <label for="xtra-cheese">Extra Cheese $0.50</label><br>
           <button id="submit" type="submit" class="btn btn-primary">Add Pie</button>
         </form>
       </div>
       <div class="col-6">
-        <form id="to-go">
-          <label for="address">Address:</label>
-          <br>
-          <input type="text" id="address">
-          <button id="address-button" type="click" class="btn btn-primary">Add Address</button>
-        </form>
+        <div id="to-go">
+          <div class="place-order hidden">
+            <button id="place-order" type="click" class="btn btn-primary btn-lg">Place Order</button>
+          </div>
+          <div>
+            <label for="address">Address:</label>
+            <br>
+            <input type="text" id="address">
+            <button id="address-button" type="click" class="btn btn-primary">Add Address</button>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto text-center">
+        <button id="clear" type="click" class="btn btn-danger">Clear Order</button>
       </div>
     </div>
-    <div class="mx-auto text-center">
-      <button id="clear" type="click" class="btn btn-danger">Clear Order</button>
-    </div>
-  </div>
 </body>
 
 </html>
